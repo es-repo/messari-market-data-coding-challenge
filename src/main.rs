@@ -8,7 +8,6 @@ mod trade_aggregate_metrics;
 type MainResult<T> = std::result::Result<T, Box<dyn std::error::Error>>;
 
 fn main() -> MainResult<()> {
-    let now = std::time::Instant::now();
 
     let mut io_error_option: Option<std::io::Error> = None;
 
@@ -55,8 +54,6 @@ fn main() -> MainResult<()> {
         })
         .count();
 
-    let elapsed = now.elapsed();
-
     if let Some(io_error) = io_error_option {
         return Err(Box::new(io_error));
     }
@@ -64,9 +61,6 @@ fn main() -> MainResult<()> {
     if let Some(trade_dto_json_parse_error) = trade_dto_parse_error_option {
         return Err(Box::new(trade_dto_json_parse_error));
     }
-
-    println!("");
-    println!("DONE in {elapsed:.2?}!");
 
     Ok(())
 }
