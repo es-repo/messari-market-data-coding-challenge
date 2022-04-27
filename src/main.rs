@@ -88,7 +88,6 @@ struct TradeDto {
 
 /// Trade aggregate metrics data to pass to output.
 #[derive(Serialize)]
-#[allow(dead_code)]
 struct TradeAggregateMetricsDto {
     market: u32,
     total_volume: f64,
