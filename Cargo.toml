@@ -1,5 +1,5 @@
 [package]
-name = "Messari Market Data Coding Challenge"
+name = "messari_market_data_coding_challenge"
 version = "0.1.0"
 edition = "2021"
 
